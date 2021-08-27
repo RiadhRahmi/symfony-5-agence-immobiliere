@@ -9,107 +9,81 @@ class PropertySearch
 {
 
     /**
+     * @var int|null
+     */
+    private $maxPrice;
+
+    /**
+     * @var int|null
+     * @Assert\Range(min=10, max=400)
+     */
+    private $minSurface;
+
+    /**
      * @var ArrayCollection
      */
     private $options;
 
     /**
-     * @var
-     * @Assert\Range(min=10, max=400)
+     * @var integer|null
      */
-    private $minSurface;
-
+    private $distance;
 
     /**
-     * @var
-     * @Assert\Range(min=100, max=400)
+     * @var float|null
      */
-    private $maxSurface;
+    private $lat;
 
     /**
-     * @var
-     * @Assert\Range(min=100000, max=10000000)
+     * @var string|null
      */
-    private $minPrice;
+    private $address;
 
     /**
-     * @var
-     * @Assert\Range(min=100000, max=10000000)
+     * @var float|null
      */
-    private $maxPrice;
-
+    private $lng;
 
     public function __construct()
     {
         $this->options = new ArrayCollection();
     }
 
-
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getMinSurface()
-    {
-        return $this->minSurface;
-    }
-
-    /**
-     * @param mixed $minSurface
-     */
-    public function setMinSurface($minSurface): void
-    {
-        $this->minSurface = $minSurface;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaxSurface()
-    {
-        return $this->maxSurface;
-    }
-
-    /**
-     * @param mixed $maxSurface
-     */
-    public function setMaxSurface($maxSurface): void
-    {
-        $this->maxSurface = $maxSurface;
-    }
-
-
-    /**
-     * @return mixed
-     */
-    public function getMinPrice()
-    {
-        return $this->minPrice;
-    }
-
-    /**
-     * @param mixed $minPrice
-     */
-    public function setMinPrice($minPrice): void
-    {
-        $this->minPrice = $minPrice;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaxPrice()
+    public function getMaxPrice(): ?int
     {
         return $this->maxPrice;
     }
 
     /**
-     * @param mixed $maxPrice
+     * @param int|null $maxPrice
+     * @return PropertySearch
      */
-    public function setMaxPrice($maxPrice): void
+    public function setMaxPrice(int $maxPrice): PropertySearch
     {
         $this->maxPrice = $maxPrice;
+        return $this;
     }
 
+    /**
+     * @return int|null
+     */
+    public function getMinSurface(): ?int
+    {
+        return $this->minSurface;
+    }
+
+    /**
+     * @param int|null $minSurface
+     * @return PropertySearch
+     */
+    public function setMinSurface(int $minSurface): PropertySearch
+    {
+        $this->minSurface = $minSurface;
+        return $this;
+    }
 
     /**
      * @return ArrayCollection
@@ -125,5 +99,77 @@ class PropertySearch
     public function setOptions(ArrayCollection $options): void
     {
         $this->options = $options;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getDistance(): ?int
+    {
+        return $this->distance;
+    }
+
+    /**
+     * @param int|null $distance
+     * @return PropertySearch
+     */
+    public function setDistance(?int $distance): PropertySearch
+    {
+        $this->distance = $distance;
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLat(): ?float
+    {
+        return $this->lat;
+    }
+
+    /**
+     * @param float|null $lat
+     * @return PropertySearch
+     */
+    public function setLat(?float $lat): PropertySearch
+    {
+        $this->lat = $lat;
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLng(): ?float
+    {
+        return $this->lng;
+    }
+
+    /**
+     * @param float|null $lng
+     * @return PropertySearch
+     */
+    public function setLng(?float $lng): PropertySearch
+    {
+        $this->lng = $lng;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param null|string $address
+     * @return PropertySearch
+     */
+    public function setAddress(?string $address): PropertySearch
+    {
+        $this->address = $address;
+        return $this;
     }
 }

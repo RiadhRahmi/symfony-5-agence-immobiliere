@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-
-use App\Entity\Property;
 use App\Entity\Option;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use App\Entity\Property;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,16 +24,24 @@ class PropertyType extends AbstractType
             ->add('bedrooms')
             ->add('floor')
             ->add('price')
-            ->add('heat', ChoiceType::class, ['choices' => $this->getChoices()])
-            ->add(
-                'options',
-                EntityType::class,
-                ['class' => Option::class, 'choice_label' => 'name', 'multiple' => true]
-            )
-            ->add('imageFile', FileType::class, ['required' => false])
+            ->add('heat', ChoiceType::class, [
+                'choices' => $this->getChoices()
+            ])
+            ->add('options', EntityType::class, [
+                'class' => Option::class,
+                'required' => false,
+                'choice_label' => 'name',
+                'multiple' => true
+            ])
+            ->add('pictureFiles', FileType::class, [
+                'required' => false,
+                'multiple' => true
+            ])
             ->add('city')
             ->add('address')
-            ->add('zipcode')
+            ->add('postal_code')
+            ->add('lat', HiddenType::class)
+            ->add('lng', HiddenType::class)
             ->add('sold');
     }
 
@@ -45,9 +53,13 @@ class PropertyType extends AbstractType
         ]);
     }
 
-
     private function getChoices()
     {
-        return array_flip(Property::HEAT);
+        $choices = Property::HEAT;
+        $output = [];
+        foreach ($choices as $k => $v) {
+            $output[$v] = $k;
+        }
+        return $output;
     }
 }

@@ -26,7 +26,11 @@ class PropertyFixtures extends Fixture
                 ->setHeat($faker->numberBetween(0, count(Property::HEAT) - 1))
                 ->setCity($faker->city)
                 ->setAddress($faker->address)
-                ->setZipcode($faker->postcode)
+                ->setPostalCode($faker->postcode)
+                ->setLat($faker->latitude)
+                ->setLng($faker->longitude)
+                ->setCreatedAt($faker->dateTime('now'))
+                ->setUpdatedAt($faker->dateTime('now'))
                 ->setSold(false);
             $manager->persist($property);
         }
