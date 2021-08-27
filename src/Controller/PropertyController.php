@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Notification\ContactNotification;
 use App\Entity\PropertySearch;
 use App\Form\PropertySearchType;
 use Symfony\Component\HttpFoundation\Request;
