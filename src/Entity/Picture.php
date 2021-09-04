@@ -23,7 +23,7 @@ class Picture
     /**
      * @var File|null
      * @Assert\Image(
-     *     mimeTypes="image/jpeg"
+     *     mimeTypes="image/png"
      * )
      * @Vich\UploadableField(mapping="property_image", fileNameProperty="filename")
      */
@@ -45,6 +45,7 @@ class Picture
     {
         return $this->id;
     }
+
 
     public function getFilename(): ?string
     {

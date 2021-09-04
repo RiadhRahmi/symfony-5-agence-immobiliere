@@ -9,14 +9,18 @@ hello:
 home:
   path: /
   controller: App\Controller\HomeController::index
+  
+mypdf:
+  path: /mypdf
+  controller: App\Controller\HomeController::mypdf
 
 property.index:
   path: /biens
   controller: App\Controller\PropertyController::index
 
-property.show:
-  path: /biens/{slug}/{id}
-  controller: App\Controller\PropertyController::show
+#property.show:
+#  path: /biens/{slug}-{id}
+#  controller: App\Controller\PropertyController::show
 
 admin.property.index:
   path: /admin

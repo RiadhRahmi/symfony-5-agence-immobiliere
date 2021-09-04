@@ -20,13 +20,14 @@ class ContactType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('phone', TextType::class)
             ->add('email', EmailType::class)
-            ->add('message', TextareaType::class)
+            ->add('message', TextareaType::class) 
             ->add('captcha', RecaptchaSubmitType::class, [
-                'label' => 'Envoyer',
+                'label' => 'Envoyer with recaptcha',
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]
-            ]);
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

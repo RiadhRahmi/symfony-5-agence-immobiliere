@@ -12,10 +12,10 @@ if (inputAddress !== null) {
   let place = Places({
     container: inputAddress,
   });
-  place.on("change", (e) => {
+  
+place.on("change", (e) => {
     document.querySelector("#property_city").value = e.suggestion.city;
-    document.querySelector("#property_postal_code").value =
-      e.suggestion.postcode;
+    document.querySelector("#property_postal_code").value = e.suggestion.postcode;
     document.querySelector("#property_lat").value = e.suggestion.latlng.lat;
     document.querySelector("#property_lng").value = e.suggestion.latlng.lng;
   });
@@ -38,6 +38,7 @@ if (searchAddress !== null) {
 let $ = require("jquery");
 require("./styles/app.css");
 require("select2");
+
 
 //used in detail property
 $("[data-slider]").slick({
@@ -88,4 +89,4 @@ document.querySelectorAll("[data-delete]").forEach((a) => {
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // var $ = require('jquery');
 
-console.log("Hello Webpack Encore! Edit me in assets/js/app.js");
+//console.log("Hello Webpack Encore! Edit me in assets/js/app.js");

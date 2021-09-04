@@ -15,12 +15,14 @@ class RecaptchaExtension extends Extension {
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        // load fichier de configuration yml
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
         );
         $loader->load('services.yaml');
 
+        // save config parameters
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('recaptcha.key', $config['key']);

@@ -41,7 +41,7 @@ class RecaptchaValidator extends ConstraintValidator {
             ->setExpectedHostname($request->getHost())
             ->verify($recaptchaResponse, $request->getClientIp());
         if (!$response->isSuccess()) {
-            dump($response->getErrorCodes());
+           // dump($response->getErrorCodes());
             $this->addViolation($constraint);
         }
     }

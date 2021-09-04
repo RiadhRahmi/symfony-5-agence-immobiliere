@@ -48,7 +48,9 @@ class PropertySearchType extends AbstractType
                 'required' => false,
                 'choices' => [
                     '10 km' => 10,
-                    '1000 km' => 1000
+                    '100 km' => 100,
+                    '1000 km' => 1000,
+                    '10000 km' => 10000
                 ]
             ])
             ->add('lat', HiddenType::class)

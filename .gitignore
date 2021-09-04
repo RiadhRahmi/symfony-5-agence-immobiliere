@@ -21,8 +21,8 @@
 
 #.env
 
-public/images/
-public/media/
+#public/images/
+#public/media/
 /public/media/cache/
 ###> liip/imagine-bundle ###
 

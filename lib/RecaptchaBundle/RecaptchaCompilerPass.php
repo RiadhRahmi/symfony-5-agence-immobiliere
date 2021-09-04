@@ -11,6 +11,7 @@ class RecaptchaCompilerPass implements CompilerPassInterface {
      */
     public function process(ContainerBuilder $container)
     {
+        // add template twig page to container
         if ($container->hasParameter('twig.form.resources')) {
             $resources = $container->getParameter('twig.form.resources') ?: [];
             array_unshift($resources, '@Recaptcha/fields.html.twig');

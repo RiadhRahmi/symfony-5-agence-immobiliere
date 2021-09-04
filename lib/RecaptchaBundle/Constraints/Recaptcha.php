@@ -5,6 +5,6 @@ use Symfony\Component\Validator\Constraint;
 
 class Recaptcha extends Constraint {
 
-    public $message = 'Invalid captcha';
+    public $message = 'Invalid captcha custom message';
 
 }

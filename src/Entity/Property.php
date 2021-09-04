@@ -81,7 +81,7 @@ class Property
     private $address;
 
     /**
-     * @Assert\Regex("/^[0-9]{5}$/")
+     * @Assert\Regex("/^[0-9]{4}$/")
      * @ORM\Column(type="string", length=255)
      */
     private $postal_code;
@@ -118,7 +118,7 @@ class Property
 
     /**
      * @Assert\All({
-     *   @Assert\Image(mimeTypes="image/jpeg")
+     *   @Assert\Image(mimeTypes="image/png")
      * })
      */
     private $pictureFiles;
@@ -356,6 +356,7 @@ class Property
         return $this;
     }
 
+
     /**
      * @return Collection|Picture[]
      */
@@ -420,6 +421,7 @@ class Property
         $this->pictureFiles = $pictureFiles;
         return $this;
     }
+
 
     public function getLat(): ?float
     {

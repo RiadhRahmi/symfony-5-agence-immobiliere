@@ -1,18 +1,23 @@
 {% block recaptcha_submit_widget %}
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <script>
     function {{ id }}RecaptchaSubmit (token) {
+        // button submit
       var elem = document.getElementById('{{ id }}')
       while (elem.parentElement !== null) {
+       // check if we are in form tag
         if (elem.tagName === 'FORM') {
           elem.submit()
           break
         }
+        // else replace elem with his parent
         elem = elem.parentElement
       }
     }
   </script>
   {% set label = button %}
-  {% set attr = attr | merge({class: (attr.class|default('')) ~ ' g-recaptcha', 'data-sitekey': key, 'data-callback': id ~ 'RecaptchaSubmit'}) %}
+  {% set attr = attr | merge({ class: (attr.class|default('')) ~ ' g-recaptcha', 'data-sitekey': key, 'data-callback': id ~ 'RecaptchaSubmit'}) %}
+  
   {% block submit_widget %}{% endblock %}
 {% endblock %}

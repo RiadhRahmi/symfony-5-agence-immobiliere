@@ -15,7 +15,7 @@ class AdminPictureController extends AbstractController
 {
 
     /**
-     * @Route("/{id}", name="admin.picture.delete", methods="DELETE")
+     * @Route("/{id}", name="admin.picture.delete", methods="DELETE|POST")
      */
     public function delete(Picture $picture, Request $request)
     {

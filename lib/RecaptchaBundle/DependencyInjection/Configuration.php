@@ -19,6 +19,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('recaptcha');
         $rootNode = $treeBuilder->getRootNode();
 
+        // configutaion settings values
         $rootNode
             ->children()
             ->scalarNode('key')

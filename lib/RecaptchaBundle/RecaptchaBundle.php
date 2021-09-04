@@ -9,6 +9,7 @@ class RecaptchaBundle extends Bundle {
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
+        // add template twig page to container
         $container->addCompilerPass(new RecaptchaCompilerPass());
     }
 

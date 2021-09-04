@@ -50,13 +50,16 @@
 							<div class="col">{{ form_row(form.email) }}</div>
 						</div>
 						{{ form_rest(form) }}
+
+						<button class="btn btn-success" type="submit"> Envoyer without captcha </button>
+
 						{{ form_end(form) }}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container mt-4">
+	<div class="container mt-4" style="margin-bottom: 100px">
 		<p>
 			{{ property.description | nl2br }}
 		</p>
@@ -97,6 +100,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="map" style="width: 100%; height: 400px" data-lat="{{ property.lat }}" data-lng="{{ property.lng }}"></div>
+<div id="map" style="width: 100%; height: 400px" data-title="{{ property.title }}" data-lat="{{ property.lat }}" data-lng="{{ property.lng }}"></div>
+
 	</div>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block title %}Gérer les biens {% endblock %}
+{% block title %}Gérer les biens
+{% endblock %}
 
 
 {% block body %}
@@ -11,6 +12,12 @@
 				{{ message }}
 			</div>
 		{%  endfor %}
+
+		<div class="text-right">
+			<a href="{{ path('admin.option.new') }}" class="btn btn-primary">Ajouter une option</a>
+
+		</div>
+
 
 		<table class="table table-striped">
 			<thead>
@@ -36,10 +43,7 @@
 			</tbody>
 		</table>
 
-		<div class="text-right">
-			<a href="{{ path('admin.option.new') }}" class="btn btn-primary">Ajouter une option</a>
 
-		</div>
 	</div>
 
 {% endblock %}
